@@ -3,12 +3,22 @@
 }
 
 body{
-    max-width:767px;
+    margin:0;
+    overflow-x:hidden;
+    background-image:url(/files/viking-background.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+
+}
+.game-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    
 }
 button{
     background-color:var(--gold);
     border-radius:10px;
     border:0px;
     padding:10px 20px;
-    
 }
