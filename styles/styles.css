@@ -1,1 +1,14 @@
+:root{
+    --gold:#EA982A
+}
 
+body{
+    max-width:767px;
+}
+button{
+    background-color:var(--gold);
+    border-radius:10px;
+    border:0px;
+    padding:10px 20px;
+    
+}
