@@ -8,17 +8,116 @@ body{
     background-image:url(/files/viking-background.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+}
 
+.game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
+
+.game-content {
+    padding: 50px;
 }
-.game-container{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    
-}
-button{
+
+button {
     background-color:var(--gold);
     border-radius:10px;
     border:0px;
     padding:10px 20px;
+    color: hsl(16, 31%, 17%);
+    text-align: center;
+    font-family: MedievalSharp;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+button.letter{ 
+    width: 101px;
+    height: 101px;
+    flex-shrink: 0;
+    box-shadow: 0px 4px 4px 4px hsla(0, 0%, 0%, 0.25);
+}
+
+.letters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 2px;
+    justify-items: center; 
+    align-items: center;
+  }
+
+.input {
+    border-radius: 10px;
+    background: hsl(34, 82%, 54%);
+    box-shadow: 0px 4px 4px 4px hsla(0, 0%, 0%, 0.25);
+    width: 80vw;
+    height: 101px;    
+    color: hsl(16, 31%, 17%);
+    text-align: center;
+    font-family: MedievalSharp;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* ********** INTRO PAGE ********** */
+
+.hidden {
+    visibility: hidden;
+  }
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding: 50px;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 50px; 
+}
+
+
+.intro-page {
+    order: 2; 
+}
+
+.logo, .intro-button {
+    margin-bottom: 50px;
+}
+
+
+/* ***** MAIN GAME PAGE ***** */
+
+/* *** INDICATORS *** */
+.indicators, .game-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .level, .life {
+    flex: 1;
+    text-align: center;
+    font-family: MedievalSharp;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+.submit-button,
+.reset-button, .input {
+  margin: 10px; 
 }
