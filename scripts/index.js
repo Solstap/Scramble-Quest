@@ -1,3 +1,4 @@
+const gameContainer = document.querySelector(".game-container");
 const introButton = document.querySelector(".intro-button");
 const introPage = document.querySelector(".intro-page");
 const gamePage = document.querySelector(".game-page");
@@ -80,6 +81,7 @@ introButton.addEventListener("click", function() {
     introPage.classList.add("hidden"); 
     gamePage.classList.remove("hidden"); 
     document.body.style.backgroundImage = 'url("./files/forest.png")';
+    gameContainer.style.display = 'block';
+    gameContainer.style.backgroundSize = 'none';
 });
-
 startGame();

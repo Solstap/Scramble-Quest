@@ -3,11 +3,12 @@
 }
 
 body{
-    margin:0;
+    padding: 30px;
     overflow-x:hidden;
     background-image:url(/files/viking-background.jpg);
     background-size:cover;
     background-repeat:no-repeat;
+    background-position: center;
 }
 
 .game-page {
@@ -15,11 +16,11 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
   }
 
 .game-content {
-    padding: 50px;
+    padding: 20px;
 }
 
 button {
@@ -30,7 +31,7 @@ button {
     color: hsl(16, 31%, 17%);
     text-align: center;
     font-family: MedievalSharp;
-    font-size: 48px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -47,14 +48,12 @@ button.letter {
     margin: 5px;
 
 }
-
 .letter-clicked {
     background: hsl(16, 31%, 17%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: hsl(0, 0%, 80%);
     font-size: 48px;
 }
-
 
 #letter-buttons-container {
     display: flex;
@@ -67,12 +66,12 @@ button.letter {
     border-radius: 10px;
     background: hsl(34, 82%, 54%);
     box-shadow: 0px 4px 4px 4px hsla(0, 0%, 0%, 0.25);
-    width: 80vw;
-    height: 101px;    
+    width: 70vw;
+    height: 50px;    
     color: hsl(16, 31%, 17%);
     text-align: center;
     font-family: MedievalSharp;
-    font-size: 80px;
+    font-size: 30px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -89,7 +88,6 @@ button.letter {
     flex-direction: column;
     align-items: center;
     justify-content:center;
-    padding: 50px;
 }
 
 .intro-content {
@@ -119,21 +117,16 @@ button.letter {
     justify-content: space-between;
   }
   
-  .level, .life {
+.level, .life {
     flex: 1;
     text-align: center;
     font-family: MedievalSharp;
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
 
-  .level {
+.level {
     padding-right: 60vw; 
   }
-
-.submit-button,
-.reset-button, .input {
-  margin: 10px; 
-}
