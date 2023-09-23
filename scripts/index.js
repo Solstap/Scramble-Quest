@@ -26,7 +26,7 @@ function shuffleWord(word) {
 }
 
 function startGame() {
-    const word = currentLevel[Math.floor(Math.random() * currentLevel.length)];
+    selectedWord = currentLevel[Math.floor(Math.random() * currentLevel.length)];
     const shuffledWord = shuffleWord(word);
     wordInput.textContent = "_ ".repeat(word.length);
 
