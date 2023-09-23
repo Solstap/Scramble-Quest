@@ -51,7 +51,10 @@ function clickLetter(letter) {
         }
     }
     wordInput.textContent = inputText.join(" ");
+
+    event.target.classList.add("letter-clicked");
 }
+
 
 // Function to increase the level
 function increaseLevel() {
