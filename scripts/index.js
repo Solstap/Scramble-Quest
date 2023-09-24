@@ -4,6 +4,9 @@ const introPage = document.querySelector(".intro-page");
 const gamePage = document.querySelector(".game-page");
 const wordInput = document.getElementById("word-input");
 const letterButtonsContainer = document.getElementById("letter-buttons-container");
+const submitButton = document.getElementById("submit-button")
+const resetButton = document.getElementById("reset-button")
+
 
 const levelOne = ["age", "era", "die"];
 const levelTwo = ["sail", "monk", "king"];
@@ -56,7 +59,23 @@ function clickLetter(letter) {
     event.target.classList.add("letter-clicked");
 }
 
+//function to check input versus word
 
+function inputCheck(){
+    const joinedSubmittedWord = wordInput.textContent.split(" ").join("")
+    console.log(selectedWord)
+    if (joinedSubmittedWord === selectedWord){
+        console.log('correct')
+    } else(console.log('wrong'))
+}
+submitButton.addEventListener("click", function(){
+    inputCheck()
+})
+
+//RESET BUTTON 
+resetButton.addEventListener("click", function(){
+    wordInput.textContent = "_ ".repeat(selectedWord.length);
+})
 // Function to increase the level
 function increaseLevel() {
     if (currentLevel === levelOne) {
