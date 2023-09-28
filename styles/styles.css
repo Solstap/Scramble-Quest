@@ -125,7 +125,16 @@ button.letter {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    display: flex;
+    flex-direction: column;
   }
+.life-helmet{
+    display: flex;
+}
+
+.level-sword{
+    display: flex;
+}
 
 .level {
     padding-right: 60vw; 

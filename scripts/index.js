@@ -59,23 +59,35 @@ function clickLetter(letter) {
     event.target.classList.add("letter-clicked");
 }
 
+// Reset Function
+function reset(){
+        wordInput.textContent = "_ ".repeat(selectedWord.length);
+}
+
 //function to check input versus word
+
 
 function inputCheck(){
     const joinedSubmittedWord = wordInput.textContent.split(" ").join("")
     console.log(selectedWord)
     if (joinedSubmittedWord === selectedWord){
         console.log('correct')
-    } else(console.log('wrong'))
+    } else{
+        console.log('wrong')
+        reset()
+        document.getElementsByClassName("life-icon")[0].remove()
+        // debugger
+    }
 }
 submitButton.addEventListener("click", function(){
     inputCheck()
 })
 
 //RESET BUTTON 
-resetButton.addEventListener("click", function(){
-    wordInput.textContent = "_ ".repeat(selectedWord.length);
-})
+// resetButton.addEventListener("click", function(){
+//     wordInput.textContent = "_ ".repeat(selectedWord.length);
+resetButton.addEventListener("click", reset)
+
 // Function to increase the level
 function increaseLevel() {
     if (currentLevel === levelOne) {
