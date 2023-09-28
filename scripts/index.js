@@ -14,11 +14,67 @@ const gameCompleteContainer = document.getElementById("game-complete")
 const restartButton = document.getElementById("start-again-button")
 const playAgainButton = document.getElementById("play-again-button")
 
-const levelOne = ["age", "era", "die"];
-const levelTwo = ["sail", "monk", "king"];
-const levelThree = ["quest", "magic", "sword"];
-const levelFour = ["empire", "viking", "shield"];
-const levelFive = ["bravery", "warrior", "pillage"];
+const levelOne = [
+    'elf',
+    'axe',
+    'orb',
+    'fay',
+    'pod',
+    'gem',
+    'hex',
+    'pit',
+    'run',
+    'oak'
+  ];
+const levelTwo = [
+    'mage',
+    'bard',
+    'scroll',
+    'rune',
+    'wand',
+    'helm',
+    'myth',
+    'gaze',
+    'cape',
+    'dusk'
+  ];
+const levelThree = [
+    'beast',
+    'crown',
+    'magic',
+    'sword',
+    'faery',
+    'flame',
+    'quest',
+    'shield',
+    'stone',
+    'earth'
+  ];
+const levelFour = [
+    'dragon',
+    'wizard',
+    'castle',
+    'forest',
+    'spirit',
+    'grail',
+    'angel',
+    'grove',
+    'golem',
+    'scroll'
+  ];
+  
+const levelFive =[
+    'phoenix',
+    'sorcery',
+    'unicorn',
+    'crystal',
+    'griffin',
+    'potion',
+    'lantern',
+    'ritual',
+    'temple',
+    'hammer'
+  ];
 
 let currentLevel = levelOne;
 let currentWordIndex = 0;
