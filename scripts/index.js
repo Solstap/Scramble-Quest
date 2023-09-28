@@ -71,7 +71,6 @@ function clickLetter(letter) {
 function removeButtons(){
     const button = document.querySelectorAll('.letter')
     const buttonArray = Array.from(button)
-    console.log(buttonArray)
     for (const buttons of buttonArray){
         buttons.remove()
     }
@@ -80,7 +79,6 @@ function removeButtons(){
 function removeColor(){
     const button = document.querySelectorAll('.letter')
     const buttonArray = Array.from(button)
-    console.log(buttonArray)
     for (const buttons of buttonArray){
         buttons.classList.remove("letter-clicked")
     }
@@ -101,7 +99,6 @@ function gameOver(){
 function gameRestart(){
     gameOverContainer.classList.add("hidden")
     currentLevel = levelOne
-    console.log(currentLevel)
     lives = 3
     lifeContainer.textContent = lives
     levelContainer.textContent = "Level One"
@@ -119,20 +116,15 @@ restartButton.addEventListener("click",function(){
 
 function inputCheck(){
     const joinedSubmittedWord = wordInput.textContent.split(" ").join("")
-    console.log(selectedWord)
     
     if (joinedSubmittedWord === selectedWord){
-        console.log('correct')
         removeButtons()
         increaseLevel()
     } else if(lives > 0){
         loseLife()
-        console.log('wrong')
-        console.log(lives)
         resetInput()
     } else{
         //game over function
-        console.log('game over')
         gameOver()
     }
 
@@ -179,7 +171,7 @@ function increaseLevel() {
 introButton.addEventListener("click", function() {
     introPage.classList.add("hidden"); 
     gamePage.classList.remove("hidden"); 
-    document.body.style.backgroundImage = 'url("./files/forest.png")';
+    document.body.style.backgroundImage = 'url("./files/forest.jpg")';
     gameContainer.style.display = 'block';
     gameContainer.style.backgroundSize = 'none';
 });

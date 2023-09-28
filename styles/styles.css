@@ -154,7 +154,9 @@ button.letter {
   }
   .end-game{
     position:absolute;
-    background-color:var(--gold);
+    background-image:url(/scrambleQuestGitRepo/files/paper-texture.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
     width:80%;
     height:80%;
     border-radius:20px;
