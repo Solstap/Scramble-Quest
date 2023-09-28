@@ -145,6 +145,7 @@ button.letter {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    width:25%;
   }
 
 
@@ -189,4 +190,20 @@ button.letter {
     top:50%;
     position:relative;
     transform:translateY(-50%)
+  }
+  #level-icons{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    max-width:100px;
+    margin-top:25px;
+  }
+  #level-icons img{
+    width:20px;
+    transform:scale(2);
+  }
+  #level-icons:nth-child(2){
+    transform:translateX(-20px);
+  }
+  #life-icons{
+    grid-template-columns:1fr 1fr 1fr;
   }

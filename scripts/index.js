@@ -13,6 +13,8 @@ const gameOverContainer = document.getElementById("game-over")
 const gameCompleteContainer = document.getElementById("game-complete")
 const restartButton = document.getElementById("start-again-button")
 const playAgainButton = document.getElementById("play-again-button")
+const lifeIconsContainer = document.getElementById("life-icons")
+const levelIconsContainer = document.getElementById("level-icons")
 
 const levelOne = [
     'elf',
@@ -93,6 +95,7 @@ function shuffleWord(word) {
 }
 
 function startGame() {
+    createLevelIcons()
     selectedWord = currentLevel[Math.floor(Math.random() * currentLevel.length)];
     const shuffledWord = shuffleWord(selectedWord);
     wordInput.textContent = "_ ".repeat(selectedWord.length);
@@ -137,6 +140,21 @@ function removeColor(){
     const buttonArray = Array.from(button)
     for (const buttons of buttonArray){
         buttons.classList.remove("letter-clicked")
+    }
+}
+//create icons
+function createLevelIcons(){
+    const levelIcon = document.createElement("img");
+    levelIcon.src = "./files/sword.png"
+    levelIcon.classList.add("level-icon")
+    levelIconsContainer.append(levelIcon)
+}
+//remove icons 
+function removeLevelIcons(){
+    const levelIcon = document.querySelectorAll('.level-icon')
+    const levelIconArray = Array.from(levelIcon)
+    for (const icon of levelIconArray){
+        icon.remove();
     }
 }
 //function to remove life
@@ -216,6 +234,8 @@ function increaseLevel() {
     } else {
         // CONGRATS MESSAGE HERE
         // & RESET MESSAGE HERE
+        removeLevelIcons()
+        
         currentLevel = levelOne;
         levelContainer.textContent = "Level One"
     }
