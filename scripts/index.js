@@ -9,7 +9,10 @@ const resetButton = document.getElementById("reset-button")
 const lifeContainer = document.getElementById("life")
 const levelContainer = document.getElementById("level")
 let lives = 3
-
+const gameOverContainer = document.getElementById("game-over")
+const gameCompleteContainer = document.getElementById("game-complete")
+const restartButton = document.getElementById("start-again-button")
+const playAgainButton = document.getElementById("play-again-button")
 
 const levelOne = ["age", "era", "die"];
 const levelTwo = ["sail", "monk", "king"];
@@ -90,6 +93,27 @@ function loseLife(){
     lifeContainer.textContent = lives
  }
 }
+// ENDGAME FUNCTIONS
+
+function gameOver(){
+    gameOverContainer.classList.remove("hidden")
+}
+function gameRestart(){
+    gameOverContainer.classList.add("hidden")
+    currentLevel = levelOne
+    console.log(currentLevel)
+    lives = 3
+    lifeContainer.textContent = lives
+    levelContainer.textContent = "Level One"
+    
+    removeButtons()
+    startGame()
+}
+//Restart game function
+
+restartButton.addEventListener("click",function(){
+    gameRestart() 
+})
 
 //function to check input versus word and increase level
 
@@ -108,6 +132,7 @@ function inputCheck(){
     } else{
         //game over function
         console.log('game over')
+        gameOver()
     }
 
 }

@@ -5,7 +5,7 @@
 body{
     padding: 30px;
     overflow-x:hidden;
-    background-image:url(/files/viking-background.jpg);
+    background-image:url(/scrambleQuestGitRepo/files/viking-background.jpg);
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
@@ -82,8 +82,11 @@ button.letter {
 
 .hidden {
     display: none;
+    
   }
-
+  .hidden .end-game{
+    z-index:-1 !important;
+  }
 .game-container {
     display: flex !important;
     flex-direction: column;
@@ -139,4 +142,23 @@ button.letter {
   #life{
     color:red;
     font-size:30px;
+  }
+  .end-game{
+    position:absolute;
+    background-color:var(--gold);
+    width:80%;
+    height:80%;
+    border-radius:20px;
+    top:10%;
+    left:10%;
+    z-index:9 ;
+  }
+  .end-game-container{
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    align-items:center;
+    top:50%;
+    position:relative;
+    transform:translateY(-50%)
   }
