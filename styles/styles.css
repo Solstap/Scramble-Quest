@@ -9,6 +9,7 @@ body{
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
+    min-height:100vh;
 }
 
 .game-page {
@@ -80,14 +81,15 @@ button.letter {
 /* ********** INTRO PAGE ********** */
 
 .hidden {
-    visibility: hidden;
+    display: none;
   }
 
 .game-container {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     align-items: center;
     justify-content:center;
+    
 }
 
 .intro-content {
@@ -129,4 +131,12 @@ button.letter {
 
 .level {
     padding-right: 60vw; 
+  }
+  #level{
+    color:red;
+    font-size:30px;
+  }
+  #life{
+    color:red;
+    font-size:30px;
   }

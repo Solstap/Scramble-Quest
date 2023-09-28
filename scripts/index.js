@@ -6,17 +6,21 @@ const wordInput = document.getElementById("word-input");
 const letterButtonsContainer = document.getElementById("letter-buttons-container");
 const submitButton = document.getElementById("submit-button")
 const resetButton = document.getElementById("reset-button")
+const lifeContainer = document.getElementById("life")
+const levelContainer = document.getElementById("level")
+let lives = 3
 
 
 const levelOne = ["age", "era", "die"];
 const levelTwo = ["sail", "monk", "king"];
-const levelThree = ["tribe", "slave", "owner"];
+const levelThree = ["quest", "magic", "sword"];
 const levelFour = ["empire", "viking", "shield"];
 const levelFive = ["bravery", "warrior", "pillage"];
 
 let currentLevel = levelOne;
 let currentWordIndex = 0;
 let selectedWord = "";
+const levelArray = [levelOne,levelTwo,levelThree,levelFour,levelFive]
 
 //SHUFFLE WORD LETTERS/ LINK TO INPUT BOX AND CREATE BUTTONS
 
@@ -44,6 +48,8 @@ function startGame() {
         letterButtonsContainer.appendChild(button);
     }
 }
+
+
 // INPUT BOX
 
 function clickLetter(letter) {
@@ -58,38 +64,83 @@ function clickLetter(letter) {
 
     event.target.classList.add("letter-clicked");
 }
+//function to remove buttons
+function removeButtons(){
+    const button = document.querySelectorAll('.letter')
+    const buttonArray = Array.from(button)
+    console.log(buttonArray)
+    for (const buttons of buttonArray){
+        buttons.remove()
+    }
+}
+//function to remove clicked class and color from button
+function removeColor(){
+    const button = document.querySelectorAll('.letter')
+    const buttonArray = Array.from(button)
+    console.log(buttonArray)
+    for (const buttons of buttonArray){
+        buttons.classList.remove("letter-clicked")
+    }
+}
+//function to remove life
+function loseLife(){
 
-//function to check input versus word
+ if (lives >= 0){
+    lives-- 
+    lifeContainer.textContent = lives
+ }
+}
+
+//function to check input versus word and increase level
 
 function inputCheck(){
     const joinedSubmittedWord = wordInput.textContent.split(" ").join("")
     console.log(selectedWord)
+    
     if (joinedSubmittedWord === selectedWord){
         console.log('correct')
-    } else(console.log('wrong'))
+        removeButtons()
+        increaseLevel()
+    } else if(lives > 0){
+        loseLife()
+        console.log('wrong')
+        console.log(lives)
+    } else{
+        //game over function
+        console.log('game over')
+    }
+
 }
 submitButton.addEventListener("click", function(){
     inputCheck()
 })
+//LIFE COUNTER
+
 
 //RESET BUTTON 
 resetButton.addEventListener("click", function(){
     wordInput.textContent = "_ ".repeat(selectedWord.length);
+    removeColor()
 })
 // Function to increase the level
 function increaseLevel() {
     if (currentLevel === levelOne) {
         currentLevel = levelTwo;
+        levelContainer.textContent = "Level Two"
     } else if (currentLevel === levelTwo) {
         currentLevel = levelThree;
+        levelContainer.textContent = "Level Three"
     } else if (currentLevel === levelThree) {
         currentLevel = levelFour;
+        levelContainer.textContent = "Level Four"
     } else if (currentLevel === levelFour) {
         currentLevel = levelFive;
+        levelContainer.textContent = "Level Five"
     } else {
         // CONGRATS MESSAGE HERE
         // & RESET MESSAGE HERE
-        // currentLevel = levelOne;
+        currentLevel = levelOne;
+        levelContainer.textContent = "Level One"
     }
 
     // Start the game with the new level
