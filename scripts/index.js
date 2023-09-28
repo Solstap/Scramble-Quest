@@ -129,6 +129,7 @@ function inputCheck(){
         loseLife()
         console.log('wrong')
         console.log(lives)
+        resetInput()
     } else{
         //game over function
         console.log('game over')
@@ -143,9 +144,12 @@ submitButton.addEventListener("click", function(){
 
 
 //RESET BUTTON 
-resetButton.addEventListener("click", function(){
+function resetInput(){
     wordInput.textContent = "_ ".repeat(selectedWord.length);
     removeColor()
+}
+resetButton.addEventListener("click", function(){
+    resetInput()
 })
 // Function to increase the level
 function increaseLevel() {
