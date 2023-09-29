@@ -7,9 +7,9 @@ h1,p{
     color:var(--charcoal);
 }
 body{
-    padding: 0px;
+    padding:0px;
     overflow-x:hidden;
-    background-image:url(/scrambleQuestGitRepo/files/viking-background.jpg);
+    background-image:url("/files/viking-background.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center;
@@ -29,10 +29,11 @@ body{
     justify-content: center;
     height:100%;
     justify-content:space-between;
+   
   }
 
 .game-content {
-    padding: 20px;
+    padding: 50px;
 }
 
 button {
@@ -63,8 +64,9 @@ button.letter {
     background: hsl(16, 31%, 17%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: hsl(0, 0%, 80%);
-    font-size: 48px;
+    
     transition:0.3s ease;
+    transform:scale(1.1);
 }
 
 #letter-buttons-container {
@@ -104,6 +106,7 @@ button.letter {
     align-items: center;
     justify-content:center;
     
+    
 }
 
 .intro-content {
@@ -123,7 +126,9 @@ button.letter {
 .logo, .intro-button {
     margin-bottom: 50px;
 }
-
+.life-lost{
+  opacity:0;
+}
 
 /* ***** MAIN GAME PAGE ***** */
 
@@ -146,6 +151,7 @@ button.letter {
     font-weight: 400;
     line-height: normal;
     width:25%;
+    padding:10px;
   }
 
 
@@ -172,7 +178,7 @@ button.letter {
   }
   .end-game{
     position:absolute;
-    background-image:url(/scrambleQuestGitRepo/files/paper-texture.jpg);
+    background-image:url("/files/paper-texture.jpg");
     background-size:cover;
     background-repeat:no-repeat;
     width:80%;
@@ -189,7 +195,8 @@ button.letter {
     align-items:center;
     top:50%;
     position:relative;
-    transform:translateY(-50%)
+    transform:translateY(-50%);
+    text-align:center;
   }
   #level-icons{
     display:grid;
@@ -197,13 +204,16 @@ button.letter {
     max-width:100px;
     margin-top:25px;
   }
-  #level-icons img{
+  #life-icons img,#level-icons img{
     width:20px;
     transform:scale(2);
+    transition:0.3s ease;
   }
   #level-icons:nth-child(2){
     transform:translateX(-20px);
   }
   #life-icons{
+    display:grid;
     grid-template-columns:1fr 1fr 1fr;
+    align-items:center;
   }

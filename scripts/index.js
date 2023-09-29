@@ -15,6 +15,7 @@ const restartButton = document.getElementById("start-again-button")
 const playAgainButton = document.getElementById("play-again-button")
 const lifeIconsContainer = document.getElementById("life-icons")
 const levelIconsContainer = document.getElementById("level-icons")
+const lifeIcon = document.querySelectorAll(".life-icon")
 
 const levelOne = [
     'elf',
@@ -123,16 +124,37 @@ function clickLetter(letter) {
         }
     }
     wordInput.textContent = inputText.join(" ");
-
+    
     event.target.classList.add("letter-clicked");
 }
-//function to remove buttons
+//function to remove buttons for next level or phase
 function removeButtons(){
     const button = document.querySelectorAll('.letter')
     const buttonArray = Array.from(button)
     for (const buttons of buttonArray){
         buttons.remove()
     }
+}
+//remove all life 
+function removeAllLife(){
+    const life = document.querySelectorAll('.life-icon')
+    const lifeArray = Array.from(life)
+    for (const lifeIcons of lifeArray){
+        lifeIcons.remove()
+    }
+}
+//function remove life icons
+function removeLifeIcon(){
+    const lastIcon = lifeIconsContainer.lastElementChild;
+    lastIcon.remove() 
+}
+//function create life icons
+function addLifeIcons(){
+    const lifeIconElement = document.createElement("img");
+    lifeIconElement.src = "./files/life.png"
+    lifeIconElement.classList.add("life-icon")
+    lifeIconsContainer.append(lifeIconElement)
+    
 }
 //function to remove clicked class and color from button
 function removeColor(){
@@ -163,6 +185,8 @@ function loseLife(){
  if (lives >= 0){
     lives-- 
     lifeContainer.textContent = lives
+    removeLifeIcon()
+
  }
 }
 // ENDGAME FUNCTIONS
@@ -172,20 +196,32 @@ function gameOver(){
 }
 function gameRestart(){
     gameOverContainer.classList.add("hidden")
+    gameCompleteContainer.classList.add("hidden")
     currentLevel = levelOne
     lives = 3
     lifeContainer.textContent = lives
     levelContainer.textContent = "Level One"
-    
+    removeLevelIcons()
     removeButtons()
+    removeAllLife()
+    addLifeIcons()
+    addLifeIcons()
+    addLifeIcons()
     startGame()
+    
+}
+//game complete function
+function gameComplete(){
+    gameCompleteContainer.classList.remove("hidden")
 }
 //Restart game function
 
 restartButton.addEventListener("click",function(){
     gameRestart() 
 })
-
+playAgainButton.addEventListener("click",function(){
+    gameRestart() 
+})
 //function to check input versus word and increase level
 
 function inputCheck(){
@@ -235,12 +271,13 @@ function increaseLevel() {
         // CONGRATS MESSAGE HERE
         // & RESET MESSAGE HERE
         removeLevelIcons()
-        
+        gameComplete()
         currentLevel = levelOne;
         levelContainer.textContent = "Level One"
     }
 
     // Start the game with the new level
+    
     startGame();
 }
 

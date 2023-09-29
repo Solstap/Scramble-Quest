@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,65 +8,73 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <link href="./styles/styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="./styles/styles.css" rel="stylesheet" />
     <script src="./scripts/index.js" type="module"></script>
 </head>
+
 <body>
     <div class="game-container">
-    <div class="intro-page">
-        <div class="intro-content">
-            <img class="logo" src="./files/scramble_quest_logo_final 2.png" alt="sramble quest logo" />
-            <button class="intro-button gold-button">Start Quest</button>
-        </div>
-    </div>
-    <div class="game-page hidden">
-        <div class="indicators">
-            <div  class="level">
-                <div id="level-icons">
-                </div>
-                <p id="level" class="levels">Level One</p>
-                <p class="indicator">Levels</p>
-            
-            </div>
-            <div  class="life">
-                <div id="life-icons">
-                </div>
-                <p id="life" class="lives">3</p>
-                <p class="indicator">Lives</p>
+        <div class="intro-page">
+            <div class="intro-content">
+                <img class="logo" src="./files/scramble_quest_logo_final 2.png" alt="sramble quest logo" />
+                <button class="intro-button gold-button">Start Quest</button>
             </div>
         </div>
-        
-        <div class="game-content">
-            <div id="letter-buttons-container">
- 
-            </div>
-            <div class="input-bar">
-                <p id="word-input">_ _ _ _</p>
+        <div class="game-page hidden">
+            <div class="indicators">
+                <div class="level">
+                    <div id="level-icons">
+                    </div>
+                    <p id="level" class="levels">Level One</p>
+                    <p class="indicator">Levels</p>
+
+                </div>
+                <div class="life">
+                    <div id="life-icons">
+                        <img id="life-1" class="life-icon" src="/files/life.png" alt="life-icon" />
+                        <img id="life-2" class="life-icon" src="/files/life.png" alt="life-icon" />
+                        <img id="life-3" class="life-icon" src="/files/life.png" alt="life-icon" />
+                    </div>
+                    <p id="life" class="lives">3</p>
+                    <p class="indicator">Lives</p>
+                </div>
             </div>
 
-            <div class="game-buttons">
-                <button id="submit-button" class="submit-button">Submit</button>
-                <button id="reset-button" class="reset-button">Reset</button>
+            <div class="game-content">
+                <div id="letter-buttons-container">
+
+                </div>
+                <div class="input-bar">
+                    <p id="word-input">_ _ _ _</p>
+                </div>
+
+                <div class="game-buttons">
+                    <button id="submit-button" class="submit-button">Submit</button>
+                    <button id="reset-button" class="reset-button">Reset</button>
+                </div>
             </div>
         </div>
-    </div>
 
         <div id="game-complete" class="quest-complete hidden end-game">
-            <div class="end-game-container"></div>
+            <div class="end-game-container">
             <h1>Quest complete, Wordmaster!</h1>
             <button id="play-again-button" class="play-again">New Quest</button>
         </div>
         </div>
-        <div id="game-over" class="quest-not-complete hidden end-game">
-            <div class="end-game-container">
+    </div>
+    <div id="game-over" class="quest-not-complete hidden end-game">
+        <div class="end-game-container">
             <h1>Your journey ends here! No lives remain.</h1>
             <button id="start-again-button" class="play-again">Start Again</button>
         </div>
-        </div>
+    </div>
 
     </div>
-</div>
+    </div>
 </body>
+
 </html>
