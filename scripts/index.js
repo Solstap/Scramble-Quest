@@ -4,18 +4,18 @@ const introPage = document.querySelector(".intro-page");
 const gamePage = document.querySelector(".game-page");
 const wordInput = document.getElementById("word-input");
 const letterButtonsContainer = document.getElementById("letter-buttons-container");
-const submitButton = document.getElementById("submit-button")
-const resetButton = document.getElementById("reset-button")
-const lifeContainer = document.getElementById("life")
-const levelContainer = document.getElementById("level")
-let lives = 3
-const gameOverContainer = document.getElementById("game-over")
-const gameCompleteContainer = document.getElementById("game-complete")
-const restartButton = document.getElementById("start-again-button")
-const playAgainButton = document.getElementById("play-again-button")
-const lifeIconsContainer = document.getElementById("life-icons")
-const levelIconsContainer = document.getElementById("level-icons")
-const lifeIcon = document.querySelectorAll(".life-icon")
+const submitButton = document.getElementById("submit-button");
+const resetButton = document.getElementById("reset-button");
+const info = document.getElementById("info");
+const lifeContainer = document.getElementById("life");
+const levelContainer = document.getElementById("level");
+const gameOverContainer = document.getElementById("game-over");
+const gameCompleteContainer = document.getElementById("game-complete");
+const restartButton = document.getElementById("start-again-button");
+const playAgainButton = document.getElementById("play-again-button");
+const lifeIconsContainer = document.getElementById("life-icons");
+const levelIconsContainer = document.getElementById("level-icons");
+const lifeIcon = document.querySelectorAll(".life-icon");
 
 const levelOne = [
     'elf',
@@ -83,6 +83,7 @@ let currentLevel = levelOne;
 let currentWordIndex = 0;
 let selectedWord = "";
 const levelArray = [levelOne,levelTwo,levelThree,levelFour,levelFive]
+let lives = 3
 
 //SHUFFLE WORD LETTERS/ LINK TO INPUT BOX AND CREATE BUTTONS
 
@@ -228,11 +229,14 @@ function inputCheck(){
     const joinedSubmittedWord = wordInput.textContent.split(" ").join("")
     
     if (joinedSubmittedWord === selectedWord){
-        removeButtons()
-        increaseLevel()
+        info.innerHTML = "<span class='correct'>Correct, warrior!</span>";
+        removeButtons();
+        increaseLevel();
     } else if(lives > 0){
-        loseLife()
-        resetInput()
+        info.innerHTML = "<span class='incorrect'>Not quite there...</span>";
+        loseLife();
+        resetInput();
+
     } else{
         //game over function
         gameOver()
@@ -242,6 +246,8 @@ function inputCheck(){
 submitButton.addEventListener("click", function(){
     inputCheck()
 })
+
+
 //LIFE COUNTER
 
 
