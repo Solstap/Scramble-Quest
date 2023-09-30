@@ -82,8 +82,10 @@ const levelFive =[
 let currentLevel = levelOne;
 let currentWordIndex = 0;
 let selectedWord = "";
-const levelArray = [levelOne,levelTwo,levelThree,levelFour,levelFive]
-let lives = 3
+const levelArray = [levelOne,levelTwo,levelThree,levelFour,levelFive];
+let lives = 3;
+let correctAnswers = 0;
+createLevelIcons();
 
 //SHUFFLE WORD LETTERS/ LINK TO INPUT BOX AND CREATE BUTTONS
 
@@ -97,7 +99,7 @@ function shuffleWord(word) {
 }
 
 function startGame() {
-    createLevelIcons()
+
     selectedWord = currentLevel[Math.floor(Math.random() * currentLevel.length)];
     const shuffledWord = shuffleWord(selectedWord);
     wordInput.textContent = "_ ".repeat(selectedWord.length);
@@ -126,8 +128,14 @@ function clickLetter(letter) {
     }
     wordInput.textContent = inputText.join(" ");
     
-    event.target.classList.add("letter-clicked");
+    const clickedButton = event.target;
+
+    clickedButton.classList.add("letter-clicked");
+    
+    // Disable the clicked button
+    clickedButton.disabled = true;
 }
+
 //function to remove buttons for next level or phase
 function removeButtons(){
     const button = document.querySelectorAll('.letter')
@@ -136,6 +144,7 @@ function removeButtons(){
         buttons.remove()
     }
 }
+
 //remove all life 
 function removeAllLife(){
     const life = document.querySelectorAll('.life-icon')
@@ -187,7 +196,6 @@ function loseLife(){
     lives-- 
     lifeContainer.textContent = lives
     removeLifeIcon()
-
  }
 }
 // ENDGAME FUNCTIONS
@@ -231,18 +239,28 @@ function inputCheck(){
     if (joinedSubmittedWord === selectedWord){
         info.innerHTML = "<span class='correct'>Correct, warrior!</span>";
         removeButtons();
-        increaseLevel();
+        correctAnswers++;
+
+        // Check if the correctAnswers count has reached 2
+        if (correctAnswers === 2) {
+            correctAnswers = 0; // Reset correctAnswers count
+            increaseLevel();
+        } else {
+            // Continue with the same level
+            startGame();
+        }
     } else if(lives > 0){
         info.innerHTML = "<span class='incorrect'>Not quite there...</span>";
         loseLife();
         resetInput();
-
     } else{
         //game over function
-        gameOver()
+        gameOver();
     }
-
 }
+
+
+
 submitButton.addEventListener("click", function(){
     inputCheck()
 })
@@ -252,13 +270,24 @@ submitButton.addEventListener("click", function(){
 
 
 //RESET BUTTON 
-function resetInput(){
+function resetInput() {
     wordInput.textContent = "_ ".repeat(selectedWord.length);
-    removeColor()
+    removeColor();
+    // Re-enable all buttons
+    const letterButtons = document.querySelectorAll('.letter');
+    for (const button of letterButtons) {
+        button.disabled = false;
+    }
 }
+
 resetButton.addEventListener("click", function(){
-    resetInput()
+    resetInput();
+    removeButtons();
+    info.innerHTML = "";
+    startGame();
 })
+
+
 // Function to increase the level
 function increaseLevel() {
     if (currentLevel === levelOne) {
@@ -274,8 +303,6 @@ function increaseLevel() {
         currentLevel = levelFive;
         levelContainer.textContent = "Level Five"
     } else {
-        // CONGRATS MESSAGE HERE
-        // & RESET MESSAGE HERE
         removeLevelIcons()
         gameComplete()
         currentLevel = levelOne;
@@ -283,7 +310,7 @@ function increaseLevel() {
     }
 
     // Start the game with the new level
-    
+    createLevelIcons();
     startGame();
 }
 
