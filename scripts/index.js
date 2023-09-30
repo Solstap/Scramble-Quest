@@ -42,7 +42,7 @@ const levelTwo = [
     'cape',
     'dusk'
   ];
-export const levelThree = [
+const levelThree = [
     'beast',
     'crown',
     'magic',
