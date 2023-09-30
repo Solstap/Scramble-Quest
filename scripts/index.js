@@ -15,7 +15,8 @@ const restartButton = document.getElementById("start-again-button");
 const playAgainButton = document.getElementById("play-again-button");
 const lifeIconsContainer = document.getElementById("life-icons");
 const levelIconsContainer = document.getElementById("level-icons");
-const lifeIcon = document.querySelectorAll(".life-icon");
+const backgroundAudio = document.getElementById("background-audio");
+const startAudioButton = document.getElementById("start-audio-button");
 
 const levelOne = [
     'elf',
@@ -41,7 +42,7 @@ const levelTwo = [
     'cape',
     'dusk'
   ];
-const levelThree = [
+export const levelThree = [
     'beast',
     'crown',
     'magic',
@@ -79,13 +80,12 @@ const levelFive =[
     'hammer'
   ];
 
-let currentLevel = levelOne;
-let currentWordIndex = 0;
-let selectedWord = "";
-const levelArray = [levelOne,levelTwo,levelThree,levelFour,levelFive];
-let lives = 3;
-let correctAnswers = 0;
-createLevelIcons();
+  let currentLevel = levelOne;
+  let selectedWord = "";
+  let lives = 3;
+  let correctAnswers = 0;
+  createLevelIcons();
+
 
 //SHUFFLE WORD LETTERS/ LINK TO INPUT BOX AND CREATE BUTTONS
 
@@ -113,8 +113,18 @@ function startGame() {
         });
         letterButtonsContainer.appendChild(button);
     }
+
+    backgroundAudio.play();
 }
 
+startAudioButton.addEventListener("click", function () {
+    backgroundAudio.play()
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error("Audio playback failed:", error);
+      });
+  });
 
 // INPUT BOX
 
@@ -138,8 +148,8 @@ function clickLetter(letter) {
 
 //function to remove buttons for next level or phase
 function removeButtons(){
-    const button = document.querySelectorAll('.letter')
-    const buttonArray = Array.from(button)
+    const button = document.querySelectorAll('.letter');
+    const buttonArray = Array.from(button);
     for (const buttons of buttonArray){
         buttons.remove()
     }
@@ -147,8 +157,8 @@ function removeButtons(){
 
 //remove all life 
 function removeAllLife(){
-    const life = document.querySelectorAll('.life-icon')
-    const lifeArray = Array.from(life)
+    const life = document.querySelectorAll('.life-icon');
+    const lifeArray = Array.from(life);
     for (const lifeIcons of lifeArray){
         lifeIcons.remove()
     }
@@ -162,14 +172,13 @@ function removeLifeIcon(){
 function addLifeIcons(){
     const lifeIconElement = document.createElement("img");
     lifeIconElement.src = "./files/life.png"
-    lifeIconElement.classList.add("life-icon")
+    lifeIconElement.classList.add("life-icon");
     lifeIconsContainer.append(lifeIconElement)
-    
 }
 //function to remove clicked class and color from button
 function removeColor(){
-    const button = document.querySelectorAll('.letter')
-    const buttonArray = Array.from(button)
+    const button = document.querySelectorAll('.letter');
+    const buttonArray = Array.from(button);
     for (const buttons of buttonArray){
         buttons.classList.remove("letter-clicked")
     }
@@ -178,13 +187,13 @@ function removeColor(){
 function createLevelIcons(){
     const levelIcon = document.createElement("img");
     levelIcon.src = "./files/sword.png"
-    levelIcon.classList.add("level-icon")
+    levelIcon.classList.add("level-icon");
     levelIconsContainer.append(levelIcon)
 }
 //remove icons 
 function removeLevelIcons(){
-    const levelIcon = document.querySelectorAll('.level-icon')
-    const levelIconArray = Array.from(levelIcon)
+    const levelIcon = document.querySelectorAll('.level-icon');
+    const levelIconArray = Array.from(levelIcon);
     for (const icon of levelIconArray){
         icon.remove();
     }
@@ -204,21 +213,24 @@ function gameOver(){
     gameOverContainer.classList.remove("hidden")
 }
 function gameRestart(){
-    gameOverContainer.classList.add("hidden")
-    gameCompleteContainer.classList.add("hidden")
-    currentLevel = levelOne
-    lives = 3
-    lifeContainer.textContent = lives
-    levelContainer.textContent = "Level One"
-    removeLevelIcons()
-    removeButtons()
-    removeAllLife()
-    addLifeIcons()
-    addLifeIcons()
-    addLifeIcons()
-    startGame()
-    
+    gameOverContainer.classList.add("hidden");
+    gameCompleteContainer.classList.add("hidden");
+    currentLevel = levelOne;
+    lives = 3;
+    createLevelIcons();
+    lifeContainer.textContent = lives;
+    levelContainer.textContent = "Level One";
+    info.innerHTML = "";
+    removeLevelIcons();
+    removeButtons();
+    removeAllLife();
+    createLevelIcons();
+    addLifeIcons();
+    addLifeIcons();
+    addLifeIcons();
+    startGame();
 }
+
 //game complete function
 function gameComplete(){
     gameCompleteContainer.classList.remove("hidden")
