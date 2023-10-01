@@ -113,13 +113,22 @@ button.letter {
 .hidden .end-game{
   z-index:-1 !important;
 }
+
 .game-container {
-  display: flex !important;
-  flex-direction: column;
+  display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  justify-content:center;
   padding-left: 20px;
   padding-right: 20px;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+}
+
+.game-container .intro-page {
+  justify-content: flex-end; 
 }
 
 .intro-content {

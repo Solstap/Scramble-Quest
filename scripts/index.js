@@ -327,6 +327,8 @@ introButton.addEventListener("click", function() {
     gamePage.classList.remove("hidden"); 
     document.body.style.backgroundImage = 'url("./files/forest.jpg")';
     gameContainer.style.display = 'block';
+    gameContainer.style.textAlign = 'center';
+    gameContainer.style.padding = '43px';
     gameContainer.style.backgroundSize = 'none';
 });
 startGame();
