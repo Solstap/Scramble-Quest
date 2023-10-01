@@ -272,13 +272,9 @@ function inputCheck(){
 }
 
 
-
 submitButton.addEventListener("click", function(){
     inputCheck()
 })
-
-
-//LIFE COUNTER
 
 
 //RESET BUTTON 
